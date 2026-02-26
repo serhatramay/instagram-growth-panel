@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: instagram-growth-panel
+    runtime: node
+    plan: free
+    buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build && cd ../backend && npm install
+    startCommand: node backend/production-server.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
